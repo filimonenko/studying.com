@@ -18,7 +18,7 @@ public class CarService {
             return false;
         } else
             v.lastAutoMaintenanceMilePassed = 0;
-        v.lastMaster = m.name;
+        v.lastCheckedMaster = m;
         return true;
     }
 
@@ -27,9 +27,8 @@ public class CarService {
         Master ivan = new Master(20, "Ivan", 2);
         Master dmitro = new Master(45, "Dmitro", 15);
 
-        Vehicle minivan = new Vehicle(250000, 2010, "Volkswagen", false, 100, 7000, "Dmitro");
-        Vehicle talisman = new Vehicle(195000, 2015, "Renault", false, 80, 5000, "Dmitro");
-        //Vehicle leaf = new Vehicle(90000, 2017, "Nissan", true, 50, 15000, "Ivan");
+        Vehicle minivan = new Vehicle(250000, 2010, "Volkswagen", false, 100, 7000, ivan);
+        Vehicle talisman = new Vehicle(195000, 2015, "Renault", false, 80, 5000, dmitro);
 
         System.out.println("Время замены масла для " + minivan.Model + "\t" + getTimeEngineCheck(ivan, minivan) + " minutes");
         System.out.println("Стоимость замены масла для " + minivan.Model + "\t" + getCostOfWork(costOfOneHour, getTimeEngineCheck(ivan, minivan)) + "$");

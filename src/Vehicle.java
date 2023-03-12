@@ -1,12 +1,12 @@
 public class Vehicle {
-    public Vehicle(int mileage, int year, String model, boolean isElectric, int enginePower, int lastAutoMaintenanceMilePassed, String lastMaster) {
+    public Vehicle(int mileage, int year, String model, boolean isElectric, int enginePower, int lastAutoMaintenanceMilePassed, Master lastCheckedMaster) {
         this.mileage = mileage;
         this.year = year;
         this.Model = model;
         this.isElectric = isElectric;
         this.enginePower = enginePower;
         this.lastAutoMaintenanceMilePassed = lastAutoMaintenanceMilePassed;
-        this.lastMaster = lastMaster;
+        this.lastCheckedMaster = lastCheckedMaster;
     }
 
     int mileage;
@@ -15,5 +15,6 @@ public class Vehicle {
     boolean isElectric;
     int enginePower;
     int lastAutoMaintenanceMilePassed;
-    String lastMaster;
+    Master lastCheckedMaster;
+
 }
