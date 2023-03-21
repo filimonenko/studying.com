@@ -1,20 +1,13 @@
-public class Vehicle {
-    public Vehicle(int mileage, int year, String model, boolean isElectric, int enginePower, int lastAutoMaintenanceMilePassed, Master lastCheckedMaster) {
-        this.mileage = mileage;
-        this.year = year;
-        this.Model = model;
-        this.isElectric = isElectric;
-        this.enginePower = enginePower;
-        this.lastAutoMaintenanceMilePassed = lastAutoMaintenanceMilePassed;
-        this.lastCheckedMaster = lastCheckedMaster;
-    }
+public interface Vehicle {
 
-    int mileage;
-    int year;
-    String Model;
-    boolean isElectric;
-    int enginePower;
-    int lastAutoMaintenanceMilePassed;
-    Master lastCheckedMaster;
+    Person getOwner();
+    Person getLastMater();
+    void setLastMater(Person person);
+    String getType();
+    String getModel();
+    void setModel(String name);
+
+    int getMileage();
+    void setMileage(int distance);
 
 }

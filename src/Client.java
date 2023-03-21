@@ -1,14 +1,15 @@
-public class Master implements Person {
-    public Master(int age, String name, int experience ) {
+public class Client  implements Person{
+    public Client(int age, String name, Vehicle vehicle ) {
         this.age = age;
         this.name = name;
-        this.experience = experience;
+        this.vehicle = vehicle;
+
     }
 
+    private final String STATUS = "I am a Client";
     private int age;
     private String name;
-    int experience;
-    private final String STATUS = "I am a Master";
+    Vehicle vehicle;
 
 
     @Override
