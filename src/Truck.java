@@ -1,58 +1,36 @@
-public class Truck implements Vehicle {
-    public Truck(int mileage, int year, String model,  int enginePower, Person owner, Person lastCheckedMaster) {
-        this.mileage = mileage;
-        this.year = year;
-        this.model = model;
-        this.enginePower = enginePower;
-        this.lastCheckedMaster = lastCheckedMaster;
-        this.owner = owner;
-    }
+public class Truck extends Vehicle {
 
+    private int loadCapacity;
+    private int enginePower;
     private final String TYPE = "I am a Truck";
-    int mileage;
-    int year;
-    String model;
-    int enginePower;
-    Person owner;
-    Person lastCheckedMaster;
 
-    @Override
-    public String getType() {
+    public Truck() {
+        super();
+    }
+
+    public Truck(int id, int mileage, int year, String model, String typeOfEngine, Client owner, Master lastCheckedMaster, int loadCapacity, int enginePower) {
+        super(id, mileage, year, model, typeOfEngine, owner, lastCheckedMaster);
+        this.loadCapacity = loadCapacity;
+        this.enginePower = enginePower;
+    }
+
+    public int getLoadCapacity() {
+        return loadCapacity;
+    }
+
+    public void setLoadCapacity(int loadCapacity) {
+        this.loadCapacity = loadCapacity;
+    }
+
+    public int getEnginePower() {
+        return enginePower;
+    }
+
+    public void setEnginePower(int enginePower) {
+        this.enginePower = enginePower;
+    }
+
+    public String getTYPE() {
         return TYPE;
-    }
-
-    @Override
-    public Person getOwner() {
-        return owner;
-    }
-
-    @Override
-    public Person getLastMater() {
-        return lastCheckedMaster;
-    }
-
-    @Override
-    public void setLastMater(Person person) {
-        this.lastCheckedMaster = person;
-    }
-
-    @Override
-    public String getModel() {
-        return model;
-    }
-
-    @Override
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    @Override
-    public int getMileage() {
-        return mileage;
-    }
-
-    @Override
-    public void setMileage(int distance) {
-        this.mileage = distance;
     }
 }

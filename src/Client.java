@@ -1,39 +1,35 @@
-public class Client  implements Person{
-    public Client(int age, String name, Vehicle vehicle ) {
-        this.age = age;
-        this.name = name;
-        this.vehicle = vehicle;
+public class Client extends Person {
 
-    }
-
+    private int yearsWithCompany;
+    private Vehicle vehicle;
     private final String STATUS = "I am a Client";
-    private int age;
-    private String name;
-    Vehicle vehicle;
 
+    public Client(){
+        super();
+    }
+    public Client(int id, String name, int yearsWithCompany, Vehicle vehicle) {
+        super(id, name);
+        this.yearsWithCompany = yearsWithCompany;
+        this.vehicle = vehicle;
+    }
 
-    @Override
-    public String getStatus() {
+    public int getYearsWithCompany() {
+        return yearsWithCompany;
+    }
+
+    public void setYearsWithCompany(int yearsWithCompany) {
+        this.yearsWithCompany = yearsWithCompany;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public String getSTATUS() {
         return STATUS;
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public int getAge() {
-        return age;
-    }
-
-    @Override
-    public void setAge(int age) {
-        this.age = age;
     }
 }

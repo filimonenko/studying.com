@@ -1,10 +1,29 @@
-public interface Person {
+public class Person {
 
-    String getStatus();
-    String getName();
-    void setName(String name);
+    private int id;
+    private String name;
 
-    int getAge();
-    void setAge(int age);
+    public Person() {
+
+    }
+    public Person(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+
+    public String getName(){
+        return name;
+    }
+    void setName(String name){
+        this.name = name;
+    }
+
+    public int getId(){
+        return id;
+    }
+    void setId(int id){
+        this.id = id;
+    }
 
 }

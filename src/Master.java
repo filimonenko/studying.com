@@ -1,38 +1,44 @@
-public class Master implements Person {
-    public Master(int age, String name, int experience ) {
+public class Master extends Person {
+
+    private int age;
+    private int experience;
+    private int salary ;
+    private final String STATUS = "I am a Master";
+
+    public Master() {
+        super();
+    }
+    public Master(int id, String name, int age, int experience, int salary) {
+        super(id, name);
         this.age = age;
-        this.name = name;
         this.experience = experience;
     }
 
-    private int age;
-    private String name;
-    int experience;
-    private final String STATUS = "I am a Master";
-
-
-    @Override
-    public String getStatus() {
-        return STATUS;
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
     public int getAge() {
         return age;
     }
 
-    @Override
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public int getExperience() {
+        return experience;
+    }
+
+    public void setExperience(int experience) {
+        this.experience = experience;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public String getSTATUS() {
+        return STATUS;
     }
 }
