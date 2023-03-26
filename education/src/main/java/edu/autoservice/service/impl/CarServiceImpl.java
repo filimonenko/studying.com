@@ -1,25 +1,24 @@
 package edu.autoservice.service.impl;
 
 import edu.autoservice.model.Car;
-import edu.autoservice.model.Vehicle;
-import edu.autoservice.service.VehicleDataProvider;
+import edu.autoservice.service.CarDataProvider;
 import edu.autoservice.service.CarService;
 
 public class CarServiceImpl implements CarService {
 
-    private VehicleDataProvider vehicleDataProvider = new VehicleDataProviderImpl();
+    private final CarDataProvider carDataProvider = new CarDataProviderImpl();
 
     @Override
     public void addCar(Car car) {
-        vehicleDataProvider.saveVehicle(car);
-    }
-    @Override
-    public void removeCar(int id) {
-        vehicleDataProvider.removeVehicle(id);
+        carDataProvider.saveCar(car);
     }
     @Override
     public Car getCar(int id) {
-        return(Car)vehicleDataProvider.getVehicle(id);
+        return(Car) carDataProvider.getCar(id);
+    }
+    @Override
+    public void removeCar(int id) {
+        carDataProvider.removeCar(id);
     }
 
 }

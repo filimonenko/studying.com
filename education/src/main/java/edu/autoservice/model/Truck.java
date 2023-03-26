@@ -13,7 +13,7 @@ public class Truck extends Vehicle {
 
     private int loadCapacity;
     private int enginePower;
-    private final String TYPE = "I am a Truck";
+    private static final String TYPE = "I am a Truck";
 
     @Override
     public String getType() {

@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 public class Car extends Vehicle{
     private int numberOfSeats;
-    private final String TYPE = "I am a Car";
+    private static final String TYPE = "I am a Car";
 
     @Override
     public String getType() {

@@ -9,10 +9,10 @@ import lombok.*;
 public class Client extends Person {
     private int yearsWithCompany;
     private Vehicle vehicle;
-    private final String STATUS = "I am a Client";
+    private static final String STATUS = "I am a Client";
 
 
-    public String getSTATUS() {
+    public String getStatus() {
         return STATUS;
     }
 }
