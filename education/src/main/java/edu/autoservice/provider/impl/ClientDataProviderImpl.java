@@ -1,7 +1,7 @@
-package edu.autoservice.service.impl;
+package edu.autoservice.provider.impl;
 
 import edu.autoservice.model.Client;
-import edu.autoservice.service.ClientDataProvider;
+import edu.autoservice.provider.ClientDataProvider;
 
 import java.util.HashMap;
 import java.util.Map;

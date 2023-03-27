@@ -1,7 +1,7 @@
-package edu.autoservice.service.impl;
+package edu.autoservice.provider.impl;
 
 import edu.autoservice.model.Truck;
-import edu.autoservice.service.TruckDataProvider;
+import edu.autoservice.provider.TruckDataProvider;
 
 import java.util.HashMap;
 import java.util.Map;

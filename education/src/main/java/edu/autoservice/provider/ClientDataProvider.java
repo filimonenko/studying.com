@@ -1,4 +1,4 @@
-package edu.autoservice.service;
+package edu.autoservice.provider;
 
 
 import edu.autoservice.model.Client;

@@ -1,11 +1,12 @@
 package edu.autoservice.service.impl;
 import edu.autoservice.model.Truck;
-import edu.autoservice.service.TruckDataProvider;
+import edu.autoservice.provider.TruckDataProvider;
+import edu.autoservice.provider.impl.TruckDataProviderImpl;
 import edu.autoservice.service.TruckService;
 
 public class TruckServiceImpl implements TruckService {
 
-    private final TruckDataProvider truckDataProvider = new TruckDataProviderImpl();
+    private  TruckDataProvider truckDataProvider = new TruckDataProviderImpl();
     @Override
     public void addTruck(Truck truck) {
         truckDataProvider.saveTruck(truck);

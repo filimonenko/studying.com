@@ -1,13 +1,13 @@
 package edu.autoservice.service.impl;
 
 import edu.autoservice.model.Client;
-import edu.autoservice.service.ClientDataProvider;
+import edu.autoservice.provider.ClientDataProvider;
+import edu.autoservice.provider.impl.ClientDataProviderImpl;
 import edu.autoservice.service.ClientService;
-import edu.autoservice.service.CarDataProvider;
 
 public class ClientServiceImpl implements ClientService {
 
-    private final ClientDataProvider clientDataProvider =  new ClientDataProviderImpl ();
+    private  ClientDataProvider clientDataProvider =  new ClientDataProviderImpl();
     @Override
     public void addClient(Client client) {
         clientDataProvider.saveClient(client);

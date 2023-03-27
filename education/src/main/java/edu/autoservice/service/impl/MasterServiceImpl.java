@@ -1,13 +1,13 @@
 package edu.autoservice.service.impl;
 
 import edu.autoservice.model.Master;
-import edu.autoservice.service.MasterDataProvider;
+import edu.autoservice.provider.MasterDataProvider;
+import edu.autoservice.provider.impl.MasterDataProviderImpl;
 import edu.autoservice.service.MasterService;
-import edu.autoservice.service.CarDataProvider;
 
 public class MasterServiceImpl implements MasterService {
 
-    private final MasterDataProvider masterDataProvider = new MasterDataProviderImpl();
+    private  MasterDataProvider masterDataProvider = new MasterDataProviderImpl();
 
     @Override
     public void addMaster(Master master) {
