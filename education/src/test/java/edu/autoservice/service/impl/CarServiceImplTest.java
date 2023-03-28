@@ -1,6 +1,5 @@
 package edu.autoservice.service.impl;
 import edu.autoservice.model.Car;
-import edu.autoservice.model.Vehicle;
 import edu.autoservice.service.CarService;
 import org.junit.jupiter.api.*;
 
@@ -12,37 +11,42 @@ class CarServiceImplTest {
 
     private static CarService carService;
     private static Car testCar;
+    private static final int CAR_ID = 1;
 
 
     @BeforeAll
     static void initCar(){
         carService = new CarServiceImpl();
         testCar = new Car();
-        testCar.setId(1);
+        testCar.setId(CAR_ID);
+    }
+
+    @BeforeEach
+    void addCarEach(){
+        carService.addCar(testCar);
     }
 
     @Test
-    @DisplayName("add car test")
+    @DisplayName("add car")
     void addCar() {
-        carService.addCar(testCar);
-        Car actual = carService.getCar(testCar.getId());
-        assertEquals(actual, testCar);
+        assertEquals(getActualCar(), testCar);
     }
 
     @Test
-    @DisplayName("get car test")
+    @DisplayName("get car")
     void getCar() {
-        carService.addCar(testCar);
-        Car actual = carService.getCar(testCar.getId());
-        assertEquals(actual, actual);
+        assertEquals(getActualCar(), testCar);
     }
 
     @Test
-    @DisplayName("remove car test")
+    @DisplayName("removed car")
     void removeCar() {
-        carService.addCar(testCar);
-        carService.removeCar(testCar.getId());
-        assertNull(carService.getCar(testCar.getId()));
+        carService.removeCar(CAR_ID);
+        assertNull(getActualCar());
+    }
+
+    private static Car getActualCar(){
+        return carService.getCar(CAR_ID);
     }
 
 }

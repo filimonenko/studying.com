@@ -2,50 +2,51 @@ package edu.autoservice.service.impl;
 
 import edu.autoservice.model.Master;
 import edu.autoservice.service.MasterService;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+@DisplayName("MasterService class test")
 public class MasterServiceTest {
 
     private static MasterService masterService;
     private static Master testMaster;
-    private static int masterId = 3;
+    private static final int MASTER_ID = 3;
 
 
     @BeforeAll
     static void initMaster(){
         masterService = new MasterServiceImpl();
         testMaster = new Master();
-        testMaster.setId(masterId);
-        System.out.println("Test -> MasterServiceImpl -> Start");
+        testMaster.setId(MASTER_ID);
     }
 
-    @Test
-    void addMaster(){
+    @BeforeEach
+    void addMasterEach(){
         masterService.addMaster(testMaster);
-        System.out.print("Test -> MasterServiceImpl -> addMaster -> ");
     }
 
     @Test
+    @DisplayName("add master")
+    void addMaster(){
+        assertEquals(getActualMaster(), testMaster);
+    }
+
+    @Test
+    @DisplayName("get master")
     void getMaster(){
-        masterService.getMaster(masterId);
-        System.out.print("Test -> MasterServiceImpl -> getMaster -> ");
+        assertEquals(getActualMaster(), testMaster);
     }
 
     @Test
+    @DisplayName("removed master")
     void removeMaster(){
-        masterService.removeMaster(masterId);
-        System.out.print("Test -> MasterServiceImpl -> removeMaster -> ");
+        masterService.removeMaster(MASTER_ID);
+        assertNull(getActualMaster());
     }
 
-    @AfterEach
-    void getStatus(){
-        System.out.println("Tested");
-    }
-    @AfterAll
-    static void finish(){
-        System.out.println("Test -> MasterServiceImpl -> Finish");
+    private static Master getActualMaster(){
+        return masterService.getMaster(MASTER_ID);
     }
 }

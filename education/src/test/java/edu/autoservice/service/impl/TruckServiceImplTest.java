@@ -2,52 +2,51 @@ package edu.autoservice.service.impl;
 
 import edu.autoservice.model.Truck;
 import edu.autoservice.service.TruckService;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+
+@DisplayName("TruckService class test")
 public class TruckServiceImplTest {
 
     private static TruckService truckService;
     private static Truck testTruck;
+    private static final int TRUCK_ID = 2;
 
     @BeforeAll
     static void initTrack(){
-
         truckService = new TruckServiceImpl();
         testTruck = new Truck();
-        testTruck.setId(2);
-        System.out.println("Test -> TruckServiceImpl -> Start");
+        testTruck.setId(TRUCK_ID);
+    }
+
+    @BeforeEach
+    void addTruckEach(){
+        truckService.addTruck(testTruck);
     }
 
     @Test
-   void addCar(){
-        truckService.addTruck(testTruck);
-        System.out.print("Test -> TruckServiceImpl -> addTruck -> ");
+    @DisplayName("add truck")
+   void addTruck(){
+        assertEquals(getActualTruck(), testTruck);
    }
 
     @Test
-    void getCar(){
-        truckService.getTruck(testTruck.getId());
-        System.out.print("Test -> TruckServiceImpl -> getTruck -> ");
+    @DisplayName("get truck")
+    void getTruck(){
+        assertEquals(getActualTruck(), testTruck);
     }
 
     @Test
-    void removeCar(){
-        truckService.removeTruck(testTruck.getId());
-        System.out.print("Test -> TruckServiceImpl -> removeTruck -> ");
+    @DisplayName("removed truck")
+    void removeTruck(){
+        truckService.removeTruck(TRUCK_ID);
+        assertNull(getActualTruck());
     }
 
-    @AfterEach
-    void getStatus(){
-        System.out.println("Tested");
+    private static Truck getActualTruck(){
+        return truckService.getTruck(TRUCK_ID);
     }
-
-    @AfterAll
-    static void finish(){
-        System.out.println("Test -> TruckServiceImpl -> Finish");
-    }
-
-
 }

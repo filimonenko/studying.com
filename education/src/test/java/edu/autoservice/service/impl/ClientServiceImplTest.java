@@ -2,51 +2,54 @@ package edu.autoservice.service.impl;
 
 import edu.autoservice.model.Client;
 import edu.autoservice.service.ClientService;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+@DisplayName("ClientService class test")
 public class ClientServiceImplTest {
 
     private static ClientService clientService ;
     private static Client testClient;
-    private static int clientId = 3;
+    private static final int CLIENT_ID = 3;
 
 
     @BeforeAll
     static void initClient(){
         clientService = new ClientServiceImpl();
         testClient = new Client();
-        testClient.setId(clientId);
-        System.out.println("Test -> ClientServiceImpl -> Start");
+        testClient.setId(CLIENT_ID);
     }
 
-    @Test
-    void addClient(){
+    @BeforeEach
+    void addClientEach(){
         clientService.addClient(testClient);
-        System.out.print("Test -> ClientServiceImpl -> addClient -> ");
     }
 
     @Test
+    @DisplayName("add client")
+    void addClient(){
+        assertEquals(testClient, getActualClient());
+    }
+
+    @Test
+    @DisplayName("get client")
     void getClient(){
-        clientService.getClient(clientId);
-        System.out.print("Test -> ClientServiceImpl -> getClient -> ");
+        assertEquals(testClient, getActualClient());
     }
 
     @Test
+    @DisplayName("removed client")
     void removeClient(){
-        clientService.removeClient(clientId);
-        System.out.print("Test -> ClientServiceImpl -> removeClient -> ");
+        clientService.removeClient(CLIENT_ID);
+        assertNull(getActualClient());
     }
 
-    @AfterEach
-    void getStatus(){
-        System.out.println("Tested");
+    private static Client getActualClient(){
+        return clientService.getClient(CLIENT_ID);
     }
-    @AfterAll
-    static void finish(){
-        System.out.println("Test -> ClientServiceImpl -> Finish");
-    }
-
 }
