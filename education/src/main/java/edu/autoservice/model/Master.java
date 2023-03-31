@@ -14,9 +14,9 @@ public class Master extends Person {
     private int age;
     private int experience;
     private int salary ;
-    private static final String STATUS = "I am a Master";
+    private PersonType personType = PersonType.MASTER;
 
-    public String getStatus() {
-        return STATUS;
+    public PersonType getStatus() {
+        return personType;
     }
 }

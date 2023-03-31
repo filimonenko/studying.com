@@ -13,10 +13,10 @@ public class Truck extends Vehicle {
 
     private int loadCapacity;
     private int enginePower;
-    private static final String TYPE = "I am a Truck";
+    private VehicleType vehicleType = VehicleType.TRUCK;
 
     @Override
-    public String getType() {
-        return TYPE;
+    public VehicleType getType() {
+        return vehicleType;
     }
 }

@@ -11,6 +11,6 @@ public abstract class Vehicle {
     private String model;
     private Client owner;
     private Master lastCheckedMaster;
-    public abstract String getType();
+    public abstract VehicleType getType();
 
 }

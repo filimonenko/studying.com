@@ -13,10 +13,7 @@ public abstract class Person {
 
     private int id;
     private String name;
-    private static final String STATUS = "I am a Person";
 
-    public String getStatus() {
-        return STATUS;
-    }
+    public abstract PersonType getStatus();
 
 }

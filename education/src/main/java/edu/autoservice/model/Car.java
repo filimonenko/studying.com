@@ -8,10 +8,10 @@ import lombok.*;
 @NoArgsConstructor
 public class Car extends Vehicle{
     private int numberOfSeats;
-    private static final String TYPE = "I am a Car";
+    private VehicleType vehicleType = VehicleType.CAR;
 
     @Override
-    public String getType() {
-        return TYPE;
+    public VehicleType getType() {
+        return vehicleType;
     }
 }
