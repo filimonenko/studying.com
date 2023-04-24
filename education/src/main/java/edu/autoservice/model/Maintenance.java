@@ -15,11 +15,9 @@ import java.util.List;
 public class Maintenance {
 
     private int id;
-    private Person manager;
     private Person client;
     private Person master;
     private Vehicle vehicle;
     private List<ServiceItem> serviceItemList;
     private LocalDate Date;
-
 }

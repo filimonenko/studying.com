@@ -2,7 +2,7 @@ package edu.autoservice.model;
 
 public enum ServiceItemType {
 
-    ChassisDiagnostics, ChassisRepair, WheelAlignment,
-    OilChange, TimingBeltReplacement
+    CHASSIS_DIAGNOSTICS, CHASSIS_REPAIR, WHEEL_ALIGNMENT,
+    OIL_CHANGE, TIMING_BELT_REPLACEMENT
 
 }

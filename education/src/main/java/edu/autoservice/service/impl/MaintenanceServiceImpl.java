@@ -27,7 +27,7 @@ public class MaintenanceServiceImpl implements MaintenanceService {
 
     @Override
     public Set<Maintenance> getAllMaintenanceByPersonId(int id) {
-        return MAINTENANCE_DATA_PROVIDER.getAllMaintenanceByPersonId(id);
+        return MAINTENANCE_DATA_PROVIDER.getAllMaintenanceByClientId(id);
     }
 
 

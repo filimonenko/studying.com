@@ -10,7 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Client extends Person {
     private int yearsWithCompany;
-    private Vehicle vehicle;
+    private List<Vehicle> vehicles;
     private PersonType personType = PersonType.CLIENT ;
     private List<ServiceItem> completedServiceItems;
     private List<ServiceItem> orderedServiceItems;

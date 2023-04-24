@@ -12,6 +12,6 @@ public interface MaintenanceDataProvider {
 
     void removeMaintenance(int id);
 
-    Set<Maintenance> getAllMaintenanceByPersonId(int id);
+    Set<Maintenance> getAllMaintenanceByClientId(int id);
 
 }

@@ -24,16 +24,16 @@ public class MaintenanceDataProviderImpl implements MaintenanceDataProvider {
     }
 
     @Override
-    public Set<Maintenance> getAllMaintenanceByPersonId(int id) {
+    public Set<Maintenance> getAllMaintenanceByClientId(int id) {
 
-        Set<Maintenance> maintenanceSetByPerson = new HashSet<>();
+        Set<Maintenance> maintenances = new HashSet<>();
 
         for (Map.Entry<Integer, Maintenance> entry : MAINTENANCE_MAP.entrySet()) {
             if (entry.getValue().getClient().getId() == id) {
-                maintenanceSetByPerson.add(entry.getValue());
+                maintenances.add(entry.getValue());
             }
         }
-        return maintenanceSetByPerson;
+        return maintenances;
     }
 
 
