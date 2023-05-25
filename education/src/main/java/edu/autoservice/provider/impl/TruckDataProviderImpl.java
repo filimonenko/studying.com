@@ -2,10 +2,13 @@ package edu.autoservice.provider.impl;
 
 import edu.autoservice.model.Truck;
 import edu.autoservice.provider.TruckDataProvider;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.Map;
-
+@Repository
+@AllArgsConstructor
 public class TruckDataProviderImpl implements TruckDataProvider {
 
     private static final Map<Integer, Truck> TRUCKS_MAP = new HashMap<>();

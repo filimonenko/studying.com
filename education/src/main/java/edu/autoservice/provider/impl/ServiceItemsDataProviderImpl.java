@@ -4,10 +4,13 @@ package edu.autoservice.provider.impl;
 import edu.autoservice.model.ServiceItem;
 import edu.autoservice.model.ServiceItemType;
 import edu.autoservice.provider.ServiceItemsDataProvider;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashSet;
 import java.util.Set;
-
+@Repository
+@AllArgsConstructor
 public class ServiceItemsDataProviderImpl implements ServiceItemsDataProvider {
 
     private static final Set<ServiceItem> SERVICE_ITEMS = new HashSet<>();

@@ -4,10 +4,14 @@ import edu.autoservice.model.Client;
 import edu.autoservice.provider.ClientDataProvider;
 import edu.autoservice.provider.impl.ClientDataProviderImpl;
 import edu.autoservice.service.ClientService;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
+@AllArgsConstructor
 public class ClientServiceImpl implements ClientService {
 
-    private  ClientDataProvider clientDataProvider =  new ClientDataProviderImpl();
+    private final ClientDataProvider clientDataProvider;
     @Override
     public void addClient(Client client) {
         clientDataProvider.saveClient(client);

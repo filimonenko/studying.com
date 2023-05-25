@@ -2,9 +2,12 @@ package edu.autoservice.provider.impl;
 
 import edu.autoservice.model.Maintenance;
 import edu.autoservice.provider.MaintenanceDataProvider;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
-
+@Repository
+@AllArgsConstructor
 public class MaintenanceDataProviderImpl implements MaintenanceDataProvider {
 
     private static final Map<Integer, Maintenance> MAINTENANCE_MAP = new HashMap<>();

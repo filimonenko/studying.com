@@ -1,6 +1,7 @@
 package edu.autoservice.service.impl;
 
 import edu.autoservice.model.Master;
+import edu.autoservice.provider.impl.MasterDataProviderImpl;
 import edu.autoservice.service.MasterService;
 import org.junit.jupiter.api.*;
 
@@ -17,7 +18,7 @@ public class MasterServiceTest {
 
     @BeforeAll
     static void initMaster(){
-        masterService = new MasterServiceImpl();
+        masterService = new MasterServiceImpl(new MasterDataProviderImpl());
         testMaster = new Master();
         testMaster.setId(MASTER_ID);
     }

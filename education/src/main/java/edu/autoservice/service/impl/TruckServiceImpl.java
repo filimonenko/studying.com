@@ -1,12 +1,17 @@
 package edu.autoservice.service.impl;
 import edu.autoservice.model.Truck;
 import edu.autoservice.provider.TruckDataProvider;
-import edu.autoservice.provider.impl.TruckDataProviderImpl;
 import edu.autoservice.service.TruckService;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
+@AllArgsConstructor
 public class TruckServiceImpl implements TruckService {
 
-    private  TruckDataProvider truckDataProvider = new TruckDataProviderImpl();
+    private final  TruckDataProvider truckDataProvider;
+
     @Override
     public void addTruck(Truck truck) {
         truckDataProvider.saveTruck(truck);

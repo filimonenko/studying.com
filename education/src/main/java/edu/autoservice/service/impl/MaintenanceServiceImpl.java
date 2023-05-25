@@ -2,32 +2,35 @@ package edu.autoservice.service.impl;
 
 import edu.autoservice.model.Maintenance;
 import edu.autoservice.provider.MaintenanceDataProvider;
-import edu.autoservice.provider.impl.MaintenanceDataProviderImpl;
 import edu.autoservice.service.MaintenanceService;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
+@AllArgsConstructor
 public class MaintenanceServiceImpl implements MaintenanceService {
 
-    private static final MaintenanceDataProvider MAINTENANCE_DATA_PROVIDER = new MaintenanceDataProviderImpl();
+    private  final MaintenanceDataProvider maintenanceDataProvider;
     @Override
     public void addMaintenance(Maintenance maintenance) {
-        MAINTENANCE_DATA_PROVIDER.saveMaintenance(maintenance);
+        maintenanceDataProvider.saveMaintenance(maintenance);
     }
 
     @Override
     public Maintenance getMaintenance(int id) {
-        return MAINTENANCE_DATA_PROVIDER.getMaintenance(id);
+        return maintenanceDataProvider.getMaintenance(id);
     }
 
     @Override
     public void removeMaintenance(int id) {
-        MAINTENANCE_DATA_PROVIDER.removeMaintenance(id);
+        maintenanceDataProvider.removeMaintenance(id);
     }
 
     @Override
     public Set<Maintenance> getAllMaintenanceByClientId(int id) {
-        return MAINTENANCE_DATA_PROVIDER.getAllMaintenanceByClientId(id);
+        return maintenanceDataProvider.getAllMaintenanceByClientId(id);
     }
 
 

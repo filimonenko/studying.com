@@ -1,5 +1,6 @@
 package edu.autoservice.service.impl;
 import edu.autoservice.model.Car;
+import edu.autoservice.provider.impl.CarDataProviderImpl;
 import edu.autoservice.service.CarService;
 import org.junit.jupiter.api.*;
 
@@ -16,7 +17,7 @@ class CarServiceImplTest {
 
     @BeforeAll
     static void initCar(){
-        carService = new CarServiceImpl();
+        carService = new CarServiceImpl(new CarDataProviderImpl());
         testCar = new Car();
         testCar.setId(CAR_ID);
     }

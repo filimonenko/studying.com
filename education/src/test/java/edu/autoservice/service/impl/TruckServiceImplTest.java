@@ -1,6 +1,7 @@
 package edu.autoservice.service.impl;
 
 import edu.autoservice.model.Truck;
+import edu.autoservice.provider.impl.TruckDataProviderImpl;
 import edu.autoservice.service.TruckService;
 import org.junit.jupiter.api.*;
 
@@ -17,7 +18,7 @@ public class TruckServiceImplTest {
 
     @BeforeAll
     static void initTrack(){
-        truckService = new TruckServiceImpl();
+        truckService = new TruckServiceImpl(new TruckDataProviderImpl());
         testTruck = new Truck();
         testTruck.setId(TRUCK_ID);
     }

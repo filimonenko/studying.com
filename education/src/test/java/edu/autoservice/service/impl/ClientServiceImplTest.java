@@ -1,6 +1,7 @@
 package edu.autoservice.service.impl;
 
 import edu.autoservice.model.Client;
+import edu.autoservice.provider.impl.ClientDataProviderImpl;
 import edu.autoservice.service.ClientService;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,7 +21,7 @@ public class ClientServiceImplTest {
 
     @BeforeAll
     static void initClient(){
-        clientService = new ClientServiceImpl();
+        clientService = new ClientServiceImpl(new ClientDataProviderImpl());
         testClient = new Client();
         testClient.setId(CLIENT_ID);
     }

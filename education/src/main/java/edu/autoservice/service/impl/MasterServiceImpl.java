@@ -4,10 +4,14 @@ import edu.autoservice.model.Master;
 import edu.autoservice.provider.MasterDataProvider;
 import edu.autoservice.provider.impl.MasterDataProviderImpl;
 import edu.autoservice.service.MasterService;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
+@AllArgsConstructor
 public class MasterServiceImpl implements MasterService {
 
-    private  MasterDataProvider masterDataProvider = new MasterDataProviderImpl();
+    private final MasterDataProvider masterDataProvider;
 
     @Override
     public void addMaster(Master master) {
