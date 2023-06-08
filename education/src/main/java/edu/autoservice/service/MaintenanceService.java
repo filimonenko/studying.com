@@ -2,15 +2,16 @@ package edu.autoservice.service;
 
 import edu.autoservice.model.Maintenance;
 
-import java.util.Set;
+import java.util.List;
+import java.util.Optional;
 
 public interface MaintenanceService {
 
     void addMaintenance(Maintenance maintenance);
 
-    Maintenance getMaintenance(int id);
+    Optional<Maintenance> getMaintenance(int id);
 
     void removeMaintenance(int id);
 
-    Set<Maintenance> getAllMaintenanceByClientId(int id);
+    List<Maintenance> getMaintenances();
 }

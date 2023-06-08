@@ -1,30 +1,37 @@
 package edu.autoservice.service.impl;
 
 import edu.autoservice.model.Master;
-import edu.autoservice.provider.MasterDataProvider;
-import edu.autoservice.provider.impl.MasterDataProviderImpl;
+import edu.autoservice.repository.MasterRepository;
 import edu.autoservice.service.MasterService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
 public class MasterServiceImpl implements MasterService {
 
-    private final MasterDataProvider masterDataProvider;
+    private final MasterRepository masterRepository;
 
     @Override
     public void addMaster(Master master) {
-        masterDataProvider.saveMaster(master);
+        masterRepository.save(master);
     }
 
     @Override
-    public Master getMaster(int id) {
-        return masterDataProvider.getMaster(id);
+    public Optional<Master> getMaster(int id) {
+        return masterRepository.findById(id);
     }
 
     @Override
     public void removeMaster(int id) {
-        masterDataProvider.removeMaster(id);
+        masterRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Master> getMasters() {
+        return masterRepository.findAll();
     }
 }

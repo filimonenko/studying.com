@@ -1,9 +1,11 @@
 package edu.autoservice.service.impl;
 
 import edu.autoservice.model.Truck;
-import edu.autoservice.provider.impl.TruckDataProviderImpl;
+import edu.autoservice.repository.TruckRepository;
 import edu.autoservice.service.TruckService;
 import org.junit.jupiter.api.*;
+
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -12,13 +14,14 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 @DisplayName("TruckService class test")
 public class TruckServiceImplTest {
 
+    private static TruckRepository truckRepository;
     private static TruckService truckService;
     private static Truck testTruck;
     private static final int TRUCK_ID = 2;
 
     @BeforeAll
     static void initTrack(){
-        truckService = new TruckServiceImpl(new TruckDataProviderImpl());
+        truckService = new TruckServiceImpl(truckRepository);
         testTruck = new Truck();
         testTruck.setId(TRUCK_ID);
     }
@@ -47,7 +50,7 @@ public class TruckServiceImplTest {
         assertNull(getActualTruck());
     }
 
-    private static Truck getActualTruck(){
+    private static Optional<Truck> getActualTruck(){
         return truckService.getTruck(TRUCK_ID);
     }
 }

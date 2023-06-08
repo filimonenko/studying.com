@@ -2,8 +2,16 @@ package edu.autoservice.service;
 
 import edu.autoservice.model.ServiceItem;
 
-import java.util.Set;
+import java.util.List;
+import java.util.Optional;
 
 public interface ServiceItemService {
-    Set<ServiceItem> getServices();
+
+    void addServiceItem(ServiceItem serviceItem);
+
+    Optional<ServiceItem> getServiceItem(int id);
+
+    void removeServiceItem(int id);
+
+    List<ServiceItem> getServices();
 }

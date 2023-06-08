@@ -1,12 +1,14 @@
 package edu.autoservice.service.impl;
 
 import edu.autoservice.model.Client;
-import edu.autoservice.provider.impl.ClientDataProviderImpl;
+import edu.autoservice.repository.ClientRepository;
 import edu.autoservice.service.ClientService;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -14,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 @DisplayName("ClientService class test")
 public class ClientServiceImplTest {
 
+    private static ClientRepository clientRepository;
     private static ClientService clientService ;
     private static Client testClient;
     private static final int CLIENT_ID = 3;
@@ -21,7 +24,7 @@ public class ClientServiceImplTest {
 
     @BeforeAll
     static void initClient(){
-        clientService = new ClientServiceImpl(new ClientDataProviderImpl());
+        clientService = new ClientServiceImpl(clientRepository);
         testClient = new Client();
         testClient.setId(CLIENT_ID);
     }
@@ -50,7 +53,7 @@ public class ClientServiceImplTest {
         assertNull(getActualClient());
     }
 
-    private static Client getActualClient(){
+    private static Optional<Client> getActualClient(){
         return clientService.getClient(CLIENT_ID);
     }
 }

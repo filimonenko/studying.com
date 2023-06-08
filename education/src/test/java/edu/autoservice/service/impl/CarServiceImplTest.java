@@ -1,8 +1,10 @@
 package edu.autoservice.service.impl;
 import edu.autoservice.model.Car;
-import edu.autoservice.provider.impl.CarDataProviderImpl;
+import edu.autoservice.repository.CarRepository;
 import edu.autoservice.service.CarService;
 import org.junit.jupiter.api.*;
+
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -10,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 @DisplayName("CarService class test")
 class CarServiceImplTest {
 
+    private static CarRepository carRepository;
     private static CarService carService;
     private static Car testCar;
     private static final int CAR_ID = 1;
@@ -17,7 +20,7 @@ class CarServiceImplTest {
 
     @BeforeAll
     static void initCar(){
-        carService = new CarServiceImpl(new CarDataProviderImpl());
+        carService = new CarServiceImpl(carRepository);
         testCar = new Car();
         testCar.setId(CAR_ID);
     }
@@ -46,7 +49,7 @@ class CarServiceImplTest {
         assertNull(getActualCar());
     }
 
-    private static Car getActualCar(){
+    private static Optional<Car> getActualCar(){
         return carService.getCar(CAR_ID);
     }
 
